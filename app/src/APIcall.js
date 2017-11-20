@@ -23,7 +23,6 @@ class APIcall extends Component {
         })
             .then(response => response.json())
             .then(response => {
-                console.log(response);
                 this.setState({
                     data: response,
                     isLoading: false
@@ -35,10 +34,14 @@ class APIcall extends Component {
     }
 
     render() {
-        if (!this.state.data) return <div><div class="spinner"></div><p>Please Wait</p></div>
+        if (this.state.isLoading) return <div><div class="spinner"></div><p>Please Wait</p></div>
         return (
-            <DisplayResponse attributes={this.state.data}></DisplayResponse>
-        )
+            <div>
+                {(this.state.isLoading) && <div><div class="spinner"></div> <p>Please Wait</p></div>}
+                {(this.state.data.attributes) && <DisplayResponse attributes={this.state.data}></DisplayResponse>}
+                {((this.state.data.Errors)) && <p>Error {this.state.data.Errors[0].ErrCode} :<br />{this.state.data.Errors[0].Message}. <br /><br />Please try with another image!</p>}
+        </div>
+                )
     }
 }
 
