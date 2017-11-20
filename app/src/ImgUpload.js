@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './ImgUpload.css';
 import APIcall from './APIcall.js';
-import img from './user-icon.png';
+import defaultImg from './user-icon.png';
 
 class ImgUpload extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            file: '',
-            img64: '',
+            file: "",
+            img64: "",
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -35,15 +35,14 @@ class ImgUpload extends Component {
         return (
             <div class="wrapper">
                 <div class="card-img">
-                    {(this.state.img64.trim() != "") && <img src={this.state.img64} height="420" width="327" />}
-                    {!(this.state.img64) && <img src={img} height="420" width="327" />}
+                    <img src={this.state.img64 ? this.state.img64 : defaultImg} height="420" width="327" />
                 </div>
                 <div class="card-info">
                     <div class="card-text">
                         <h1>Face recognition with Kairos API</h1>
                         <h5>by Julie Thiebaut</h5>
                         {!(this.state.img64) && <p>Please select an image!</p>}
-                        {(this.state.img64.trim() != "") &&
+                        {(this.state.img64) &&
                             <APIcall img64={this.state.img64}></APIcall>}
                     </div>
                     <div class="card-btn">

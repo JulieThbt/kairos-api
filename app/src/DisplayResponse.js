@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class DisplayResponse extends Component {
     constructor(props) {
         super(props)
+        let response = this.props.attributes.images[0].faces[0].attributes;
         this.state = {
-            asian_rate: parseInt(this.props.attributes.images[0].faces[0].attributes.asian * 100),
-            black_rate: parseInt(this.props.attributes.images[0].faces[0].attributes.black * 100),
-            hispanic_rate: parseInt(this.props.attributes.images[0].faces[0].attributes.hispanic * 100),
-            other_rate: parseInt(this.props.attributes.images[0].faces[0].attributes.other * 100),
-            white_rate: parseInt(this.props.attributes.images[0].faces[0].attributes.white * 100),
+            asian_rate: parseInt(response.asian * 100),
+            black_rate: parseInt(response.black * 100),
+            hispanic_rate: parseInt(response.hispanic * 100),
+            other_rate: parseInt(response.other * 100),
+            white_rate: parseInt(response.white * 100),
         }
     }
 

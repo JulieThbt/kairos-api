@@ -38,7 +38,7 @@ class APIcall extends Component {
         return (
             <div>
                 {(this.state.isLoading) && <div><div class="spinner"></div> <p>Please Wait</p></div>}
-                {(this.state.data.attributes) && <DisplayResponse attributes={this.state.data}></DisplayResponse>}
+                {(this.state.data.images) && <DisplayResponse attributes={this.state.data}></DisplayResponse>}
                 {((this.state.data.Errors)) && <p>Error {this.state.data.Errors[0].ErrCode} :<br />{this.state.data.Errors[0].Message}. <br /><br />Please try with another image!</p>}
         </div>
                 )

@@ -1,5 +1,6 @@
 var express = require('express');
 var fetch = require('node-fetch');
+var cors = require('cors');
 var api_id = process.env.MYAPIID;
 var api_key = process.env.MYAPIKEY;
 var app = express();
@@ -8,6 +9,7 @@ var port = process.env.PORT || 8000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(cors());
 
 app.post('/detect', function (req, res) {
     fetch('https://api.kairos.com/detect', {
