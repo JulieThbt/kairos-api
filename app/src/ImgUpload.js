@@ -42,7 +42,7 @@ class ImgUpload extends Component {
                     <div class="card-text">
                         <h1>Face recognition with Kairos API</h1>
                         <h5>by Julie Thiebaut</h5>
-                        {!(this.state.img64) && <p>Please select an Image to Analyze</p>}
+                        {!(this.state.img64) && <p>Please select an image!</p>}
                         {(this.state.img64.trim() != "") &&
                             <APIcall img64={this.state.img64}></APIcall>}
                     </div>

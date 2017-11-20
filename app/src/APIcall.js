@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './APIcall.css';
+import DisplayResponse from './DisplayResponse.js';
 
 class APIcall extends Component {
     constructor(props) {
@@ -33,9 +35,9 @@ class APIcall extends Component {
     }
 
     render() {
-        if (!this.state.data) return <p>Please Wait</p>
+        if (!this.state.data) return <div><div class="spinner"></div><p>Please Wait</p></div>
         return (
-            <p>Bonjour</p>
+            <DisplayResponse attributes={this.state.data}></DisplayResponse>
         )
     }
 }
